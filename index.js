@@ -50,6 +50,10 @@ bot.on("message", message => {
     }
 })
 
+bot.on("guildCreate", guild => {
+    bbd[guild.id] = {}
+})
+
 function Savebdd() {
     fs.writeFile("./bdd.json", JSON.stringify(bdd, null, 4), (err) => {
         if (err) message.channel.send("Une erreur est survenue.");
